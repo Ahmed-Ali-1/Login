@@ -1,0 +1,91 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: "Inter", sans-serif;
+ }
+
+ .container {
+     width: 100%;
+     min-height: 100vh;
+     background-color: #e3e9ff;
+     padding: 10px;
+ }
+
+ .todo-app {
+     width: 100%;
+     max-width: 540px;
+     background-color: #fff;
+     margin: 100px auto 20px;
+     padding: 40px 30px 70px;
+     border-radius: 10px;
+ }
+
+ .todo-app h2 {
+     color: #af7eeb;
+     display: flex;
+     align-items: center;
+     margin-bottom: 20px;
+ }
+
+ .row {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #e3e9ff;
+     border-radius: 30px;
+     padding-left: 20px;
+     margin-bottom: 16px;
+ }
+
+ input {
+     flex: 1;
+     border: none;
+     outline: none;
+     background: transparent;
+     padding: 10px;
+     font-weight: 14px;
+ }
+
+ button {
+     border: none;
+     outline: none;
+     padding: 16px 40px;
+     background-color: #af7eeb;
+     cursor: pointer;
+     font-size: 16px;
+     border-radius: 50px;
+     color: #ffffff;
+ }
+
+ ul li {
+     list-style-type: decimal;
+     font-size: 17px;
+     padding: 12px 0px 12px 8px;
+     user-select: none;
+     cursor: pointer;
+     color: #92949e;
+     text-transform: capitalize;
+     margin-left: 40px;
+
+ }
+
+ .outputLi {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .outputLi button {
+     background-color: transparent;
+     padding: 0;
+     font-size: 20px;
+     color: #af7eeb;
+     margin-right: 20px;
+ }
+
+ #editBtn {
+     display: none;
+ }
