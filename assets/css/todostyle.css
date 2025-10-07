@@ -100,11 +100,12 @@
      }
 
      .outputLi button {
-         margin-right: 0px;
+         margin-right: 12px;
      }
 
      ul li {
-         margin-left: 20px;
+         margin-left: 24px;
+         padding: 12px 0px 12px 4px;
      }
 
      button {
