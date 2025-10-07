@@ -121,7 +121,6 @@ body {
 }
 
 .sign-up>a {
-    text-decoration: none;
     font-weight: 500;
     font-family: "National Park", sans-serif;
     color: var(--bgColour);

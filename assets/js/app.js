@@ -2,7 +2,6 @@
 
 var users = JSON.parse(localStorage.getItem("userData")) || []
 
-console.log(users);
 
 
 function signUp() {
@@ -38,7 +37,8 @@ function signUp() {
 function logIn() {
     var loginEmail = document.getElementById("loginEmail").value
     var loginPassword = document.getElementById("loginPassword").value
-
+    var fieldInput = document.getElementById("fieldInput")
+    var fieldPassword = document.getElementById("fieldPassword")
 
     var isfound = false
 
@@ -50,12 +50,20 @@ function logIn() {
             localStorage.setItem("currentUser", JSON.stringify(user))
             location.href = "todo.html"
         }
+        if (user.Email !== loginEmail) {
+            fieldInput.innerText = "incorrect email"
+        }
+        if (user.Password !== loginPassword) {
+            fieldPassword.innerText = "incorrect password"
+        }
+
     }
     if (!isfound) {
         alert("User not found!")
-        location.href = "signUp.html"
     }
+
 }
+
 
 
 
