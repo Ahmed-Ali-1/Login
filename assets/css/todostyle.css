@@ -46,7 +46,6 @@
      outline: none;
      background: transparent;
      padding: 10px;
-     font-weight: 14px;
  }
 
  button {
@@ -88,4 +87,27 @@
 
  #editBtn {
      display: none;
+ }
+
+ @media (max-width: 440px) {
+     .todo-app {
+         padding: 40px 20px 70px;
+     }
+
+     input {
+         width: 0px;
+         padding: 10px 0px;
+     }
+
+     .outputLi button {
+         margin-right: 0px;
+     }
+
+     ul li {
+         margin-left: 20px;
+     }
+
+     button {
+         padding: 16px 28px;
+     }
  }

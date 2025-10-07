@@ -1,12 +1,6 @@
-
-
 var users = JSON.parse(localStorage.getItem("userData")) || []
 
-
-
 function signUp() {
-
-
     var userName = document.getElementById("userName").value
     var userEmail = document.getElementById("userEmail").value
     var userPassword = document.getElementById("userPassword").value
@@ -25,11 +19,9 @@ function signUp() {
         Email: userEmail,
         Password: userPassword
     }
-
     users.push(userObj)
 
     localStorage.setItem("userData", JSON.stringify(users))
-
     location.href = "./login.html"
 
 }
@@ -37,11 +29,8 @@ function signUp() {
 function logIn() {
     var loginEmail = document.getElementById("loginEmail").value
     var loginPassword = document.getElementById("loginPassword").value
-    var fieldInput = document.getElementById("fieldInput")
-    var fieldPassword = document.getElementById("fieldPassword")
 
     var isfound = false
-
     for (var index in users) {
         var user = users[index]
         if (user.Email == loginEmail && user.Password == loginPassword) {
@@ -50,19 +39,13 @@ function logIn() {
             localStorage.setItem("currentUser", JSON.stringify(user))
             location.href = "todo.html"
         }
-        if (user.Email !== loginEmail) {
-            fieldInput.innerText = "incorrect email"
-        }
-        if (user.Password !== loginPassword) {
-            fieldPassword.innerText = "incorrect password"
-        }
-
     }
     if (!isfound) {
         alert("User not found!")
     }
-
 }
+
+
 
 
 

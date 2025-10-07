@@ -1,8 +1,9 @@
 var input = document.getElementById("input");
+var ul = document.getElementById("output");
 
 function addTodo() {
     if (input.value == "") {
-        alert("Do you want to continue")
+        alert("You must write something!")
     } else {
         var ul = document.getElementById("output");
         var li = document.createElement("li");
@@ -16,13 +17,14 @@ function addTodo() {
         li.setAttribute("id", counter)
         ul.appendChild(li)
         input.value = ""
-
+        saveData()
     }
 }
 
 function deleteTodo(id) {
     var li = document.getElementById(id)
     li.remove();
+    saveData()
 }
 
 var editLiId;
@@ -33,6 +35,7 @@ function editTodo(id) {
     document.getElementById("addBtn").style.display = "none";
     document.getElementById("editBtn").style.display = "inline-block";
     editLiId = id;
+    saveData()
 }
 
 function editTodoLi() {
@@ -42,5 +45,14 @@ function editTodoLi() {
     input.value = ""
     document.getElementById("addBtn").style.display = "inline-block";
     document.getElementById("editBtn").style.display = "none";
+    saveData()
 }
 
+function saveData() {
+    localStorage.setItem("saveUserTodo", ul.innerHTML)
+}
+function storeData() {
+    ul.innerHTML = localStorage.getItem("saveUserTodo")
+}
+
+storeData()
