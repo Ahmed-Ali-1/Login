@@ -1,6 +1,13 @@
 var input = document.getElementById("input");
 var ul = document.getElementById("output");
 
+var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+var saveUserTodoKey = "Name: " + currentUser.Name + " || " + "Email: " + currentUser.Email;
+
+var todos = JSON.parse(localStorage.getItem(saveUserTodoKey)) || [];
+
+
 function addTodo() {
     if (input.value == "") {
         alert("You must write something!")
@@ -16,15 +23,21 @@ function addTodo() {
 
         li.setAttribute("id", counter)
         ul.appendChild(li)
+
+
+        todos.push(input.value)
+        localStorage.setItem(saveUserTodoKey, JSON.stringify(todos))
+
         input.value = ""
-        saveData()
     }
 }
 
 function deleteTodo(id) {
     var li = document.getElementById(id)
     li.remove();
-    saveData()
+
+    todos.splice(id, 1);
+    localStorage.setItem(saveUserTodoKey, JSON.stringify(todos));
 }
 
 var editLiId;
@@ -35,24 +48,32 @@ function editTodo(id) {
     document.getElementById("addBtn").style.display = "none";
     document.getElementById("editBtn").style.display = "inline-block";
     editLiId = id;
-    saveData()
+
 }
 
 function editTodoLi() {
-    console.log("input ==>", input.value);
     var li = document.getElementById(editLiId);
     li.firstChild.firstChild.nodeValue = input.value;
+
+    todos[editLiId] = input.value;
+    localStorage.setItem(saveUserTodoKey, JSON.stringify(todos));
+
     input.value = ""
     document.getElementById("addBtn").style.display = "inline-block";
     document.getElementById("editBtn").style.display = "none";
-    saveData()
+
 }
 
-function saveData() {
-    localStorage.setItem("saveUserTodo", ul.innerHTML)
-}
-function storeData() {
-    ul.innerHTML = localStorage.getItem("saveUserTodo")
-}
 
-storeData()
+window.onload = function () {
+    for (var i = 0; i < todos.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("id", i);
+        li.innerHTML = "<div class='outputLi'>"
+            + todos[i]
+            + "<div><button onclick='editTodo(" + i + ")'><i class='fa-solid fa-pen-to-square'></i></button>"
+            + "<button onclick='deleteTodo(" + i + ")'><i class='fa-solid fa-trash'></i></button></div></div>";
+
+        ul.appendChild(li);
+    }
+}

@@ -81,6 +81,11 @@ body {
     color: #aaaaaa;
     font-family: "National Park", sans-serif;
     font-weight: 500;
+
+}
+
+#userName {
+    text-transform: capitalize;
 }
 
 .input-box>i {

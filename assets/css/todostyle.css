@@ -46,6 +46,7 @@
      outline: none;
      background: transparent;
      padding: 10px;
+     text-transform: capitalize;
  }
 
  button {
