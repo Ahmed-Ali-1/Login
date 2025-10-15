@@ -54,6 +54,8 @@ function editTodo(id) {
 function editTodoLi() {
     var li = document.getElementById(editLiId);
     li.firstChild.firstChild.nodeValue = input.value;
+    console.log(li);
+
 
     todos[editLiId] = input.value;
     localStorage.setItem(saveUserTodoKey, JSON.stringify(todos));

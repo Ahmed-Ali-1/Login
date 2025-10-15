@@ -46,6 +46,9 @@
      outline: none;
      background: transparent;
      padding: 10px;
+ }
+
+ #input {
      text-transform: capitalize;
  }
 
